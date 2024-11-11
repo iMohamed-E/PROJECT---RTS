@@ -1,0 +1,1025 @@
+/* ==================== Global Setup ==================== */
+* {
+  -webkit-tap-highlight-color: transparent;
+  font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --Light-Color : #F7727E;
+  --Main-Color : #bf1e2d;
+  --Dark-Color : #450A0F;
+  --Dark-Grey : #777;
+  --Black : #000;
+  --White : #FFF;
+  --Grey : #DDD;
+}
+
+@media (min-width: 90em) {
+  .Main-Container {
+    width: 90em;
+  }
+}
+
+/* ==================== Website Header ==================== */
+.Header {
+  box-shadow: 0 0 10px var(--Grey);
+  background-color: var(--White);
+  position: sticky;
+  z-index: 1000;
+  top: 0;
+}
+
+.Header .Main-Container {
+  display: flex;
+  margin: 0 auto;
+  padding: 1em 5em;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Header .Main-Container .Logo {
+  width: 10rem;
+}
+
+.Header .Main-Container .Nav-List,
+.Header .Main-Container .Nav-List .Nav-Item .Nav-Link {
+  gap: 2.5rem;
+  display: flex;
+  font-size: 1rem;
+  font-weight: 600;
+  position: relative;
+  color: var(--Black);
+  align-items: center;
+  justify-content: center;
+}
+
+.Header .Main-Container .Nav-List .Nav-Item .Nav-Link::before {
+  content: "";
+  width: 100%;
+  height: 3px;
+  bottom: -7px;
+  transition: 0.5s;
+  position: absolute;
+  border-radius: 12px;
+  transform: scale(0, 1);
+  background-color: var(--Main-Color);
+}
+
+.Header .Main-Container .Nav-List .Nav-Item .Nav-Link:hover {
+  transition: 1s;
+  color: var(--Main-Color);
+}
+
+.Header .Main-Container .Nav-List .Nav-Item .Nav-Link:hover::before {
+  transform: scale(1.1);
+}
+
+.Header .Main-Container .Header-Btn {
+  background-image: linear-gradient(to right, var(--Main-Color), var(--Dark-Color));
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  color: var(--White);
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.Header .Main-Container .Header-Btn:active {
+  transform: scale(0.98);
+}
+
+.Header .Main-Container .Nav-Icons {
+  color: var(--Main-Color);
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 75em) {
+  .Header .Main-Container {
+    padding: 1em 3.75em;
+  }
+}
+
+@media (max-width: 65em) {
+  .Header .Main-Container {
+    padding: 1em 2.5em;
+  }
+  .Header .Main-Container .Logo {
+    width: 8rem;
+  }
+  .Header .Main-Container .Nav-List {
+    border-bottom: 2px solid #fecacf;
+    background-color: #fef2f3;
+    flex-direction: column;
+    position: absolute;
+    overflow: hidden;
+    padding: 0 1em;
+    max-height: 0;
+    opacity: 0;
+    top: 80px;
+    right: 0;
+    left: 0;
+    gap: 0;
+  }
+  .Header .Main-Container .Nav-Item {
+    border-bottom: 1px solid #fecacf;
+    width: 100%;
+  }
+  .Header .Main-Container .Nav-List.active {
+    max-height: 100vh;
+    opacity: 1;
+  }
+  .Header .Main-Container .Nav-Item .Nav-Link {
+    padding: 1.25em;
+  }
+  .Header .Main-Container .Nav-List .Nav-Item .Nav-Link::before {
+    display: none;
+  }
+  .Header .Main-Container .Header-Btn {
+    margin: 15px;
+  }
+  .Header .Main-Container .Nav-Icons {
+    display: block;
+  }
+}
+
+/* ==================== Website Banner ==================== */
+.Banner .Main-Container {
+  display: grid;
+  margin: 0 auto;
+  align-items: center;
+  padding: 2.5em 5em 0;
+  justify-content: space-between;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.Banner .Main-Container img {
+  filter: drop-shadow(7px 20px var(--Black));
+  border-radius: 15px;
+  max-width: 100%;
+  width: 700px;
+}
+
+.Banner .Main-Container .Info h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.Banner .Main-Container .Info p {
+  font-size: 1rem;
+  max-width: 40ch;
+  line-height: 1.3;
+  margin-bottom: 1.25em;
+}
+
+.Banner .Main-Container .Info .Banner-Btn {
+  background-image: linear-gradient(to right, var(--Main-Color), var(--Dark-Color));
+  padding: 0.8rem 3.5rem;
+  color: var(--White);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.Banner .Main-Container .Info .Banner-Btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 75em) {
+  .Banner .Main-Container {
+    padding: 3em 3.75em 0;
+  }
+}
+
+@media (max-width: 65em) {
+  .Banner .Main-Container {
+    display: flex;
+    padding: 3em 2.5em 0;
+    flex-direction: column-reverse;
+  }
+  .Banner .Main-Container .Info {
+    text-align: center;
+    margin-top: 3em;
+  }
+}
+
+/* ==================== Clients Section ==================== */
+.Clients .Main-Container {
+  margin: 2em auto 0;
+  padding: 0 5em 0;
+}
+
+.Clients .Main-Container .Title {
+  display: flex;
+  align-items: center;
+}
+
+.Clients .Main-Container .Title h3 {
+  position: relative;
+  padding-left: 30px;
+  font-size: 1.5rem;
+}
+
+.Clients .Main-Container .Title h3::before {
+  content: url(Assets/Sections-Illustration.svg);
+  position: absolute;
+  z-index: -1;
+  top: 8px;
+  left: 0;
+}
+
+.Clients .Main-Container .Title p {
+  margin-left: 80px;
+  line-height: 1.3;
+  font-size: 1rem;
+  max-width: 60ch;
+}
+
+.Clients .Main-Container .Logos-Holder {
+  display: grid;
+  row-gap: 1.75em;
+  margin-top: 3em ;
+  justify-content: space-between;
+  grid-template-columns: repeat(6, 110px);
+}
+
+.Clients .Main-Container .Logos-Holder img {
+  max-width: 100%;
+  width: 110px;
+  height: 100px;
+}
+
+@media (max-width: 75em) {
+  .Clients .Main-Container {
+    padding: 0 3.75em;
+  }
+}
+
+@media (max-width: 65em) {
+  .Clients .Main-Container {
+    padding: 0 2.5em;
+    margin: 5rem auto 0;
+  }
+  .Clients .Main-Container .Title {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Clients .Main-Container .Title h3 {
+    padding: 0;
+  }
+  .Clients .Main-Container .Title h3::before {
+    left: -30px;
+  }
+  .Clients .Main-Container .Title p {
+    margin: 0;
+    margin-top: 1.25em;
+  }
+  .Clients .Main-Container .Logos-Holder {
+    display: grid;
+    grid-template-columns: repeat(3, 110px);
+  }
+}
+
+@media (max-width: 48em) {
+  .Clients .Main-Container {
+    margin: 17rem auto 0;
+  }
+}
+
+@media (max-width: 33em) {
+  .Clients .Main-Container .Logos-Holder {
+    display: grid;
+    column-gap: 1em;
+    grid-template-columns: repeat(2, 110px);
+  }
+}
+
+/* ==================== Services Section ==================== */
+.Services {
+  scroll-margin-top: 100px;
+}
+
+.Services .Main-Container {
+  margin: 10em auto 0;
+  padding: 0 5em;
+}
+
+.Services .Main-Container .Title {
+  display: flex;
+  align-items: center;
+}
+
+.Services .Main-Container .Title h3 {
+  position: relative;
+  padding-left: 50px;
+  font-size: 1.5rem;
+}
+
+.Services .Main-Container .Title h3::before {
+  content: url(Assets/Sections-Illustration.svg);
+  position: absolute;
+  z-index: -1;
+  top: 8px;
+  left: 0;
+}
+
+.Services .Main-Container .Title p {
+  margin-left: 95px;
+  line-height: 1.3;
+  font-size: 1rem;
+  max-width: 60ch;
+}
+
+.Services .Main-Container .Cards-Holder {
+  gap: 20px;
+  display: grid;
+  margin-top: 3em;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.Services .Main-Container .Cards-Holder .Card {
+  box-shadow: 7px 7px var(--Black);
+  border: 1px solid var(--Black);
+  border-radius: 15px;
+  text-align: center;
+  padding: 0 0 30px;
+}
+
+.Services .Main-Container .Cards-Holder .Card .Image-Holder {
+  overflow: hidden;
+  position: relative;
+}
+
+.Services .Main-Container .Cards-Holder .Card .Image-Holder::before {
+  content: "";
+  left: 0;
+  top: -1px;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-radius: 15px;
+}
+
+.Services .Main-Container .Cards-Holder .Card .Image-Holder::after {
+  content: "";
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  position: absolute;
+  border-style: solid;
+  border-width: 0px 0px 60px 500px;
+  border-color: transparent transparent white transparent;
+}
+
+.Services .Main-Container .Cards-Holder .Card .Image-Holder img {
+  height: 250px;
+  max-width: 100%;
+  border-radius: 15px;
+}
+
+.Services .Main-Container .Cards-Holder .One .Image-Holder::before {
+  background-color: rgb(0 150 136 / 30%);
+}
+
+.Services .Main-Container .Cards-Holder .One h4::after {
+  background-color: rgb(0, 150, 136);
+}
+
+.Services .Main-Container .Cards-Holder .Two .Image-Holder::before {
+  background-color: rgb(191 30 45 / 30%);
+}
+
+.Services .Main-Container .Cards-Holder .Two h4::after {
+  background-color: var(--Main-Color);
+}
+
+.Services .Main-Container .Cards-Holder .Three .Image-Holder::before {
+  background-color: rgb(3 169 244 / 30%);
+}
+
+.Services .Main-Container .Cards-Holder .Three h4::after {
+  background-color: rgb(3, 169, 244);
+}
+
+.Services .Main-Container .Cards-Holder .Card h4 {
+  display: flex;
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 10px 0;
+  position: relative;
+  justify-content: center;
+}
+
+.Services .Main-Container .Cards-Holder .Card h4::after {
+  content: "";
+  height: 5px;
+  bottom: -10px;
+  position: absolute;
+  border-radius: 12px;
+  width: calc(100% - 50px);
+}
+
+.Services .Main-Container .Cards-Holder .Card p {
+  line-height: 1.3;
+  font-size: 0.75rem;
+  padding: 25px 30px 0;
+  color: var(--Dark-Grey);
+}
+
+@media (max-width: 75em) {
+  .Services .Main-Container {
+    padding: 0 3.75em;
+  }
+}
+
+@media (max-width: 65em) {
+  .Services .Main-Container {
+    padding: 0 2.5em;
+  }
+  .Services .Main-Container .Title {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Services .Main-Container .Title h3 {
+    padding: 0;
+  }
+  .Services .Main-Container .Title h3::before {
+    left: -50px;
+  }
+  .Services .Main-Container .Title p {
+    margin: 0;
+    margin-top: 1.25em;
+  }
+  .Services .Main-Container .Cards-Holder {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 48em) {
+  .Services .Main-Container .Cards-Holder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ==================== Reviews Section ==================== */
+.Reviews {
+  scroll-margin-top: 100px;
+}
+
+.Reviews .Main-Container {
+  margin: 10rem auto 0;
+  padding: 0 5em;
+}
+
+.Reviews .Main-Container .Title {
+  display: flex;
+  align-items: center;
+}
+
+.Reviews .Main-Container .Title h3 {
+  position: relative;
+  padding-left: 50px;
+  font-size: 1.5rem;
+}
+
+.Reviews .Main-Container .Title h3::before {
+  content: url(Assets/Sections-Illustration.svg);
+  position: absolute;
+  z-index: -1;
+  top: 8px;
+  left: 0;
+}
+
+.Reviews .Main-Container .Title p {
+  margin-left: 95px;
+  line-height: 1.3;
+  font-size: 1rem;
+  max-width: 55ch;
+}
+
+.Reviews .Main-Container .Holder {
+  margin-top: 3em;
+  overflow: hidden;
+  border-radius: 15px;
+}
+
+.Reviews .Main-Container .Holder .Cards {
+  justify-content: space-between;
+  transition: margin-left 1s;
+  border-radius: 15px;
+  display: flex;
+  width: 300%;
+}
+
+#Two:checked ~ .Holder .Cards {
+  margin-left: -100%;
+}
+
+#Three:checked ~ .Holder .Cards {
+  margin-left: -200%;
+}
+
+.Reviews .Main-Container .Holder .Cards .Card {
+  width: calc(100% / 3 - 5px);
+  transition: all 0.5s ease;
+  flex-direction: column;
+  background:var(--Dark-Color);
+  align-items: center;
+  border-radius: 15px;
+  text-align: center;
+  padding: 2.5em;
+  display: flex;
+}
+
+.Reviews .Main-Container .Holder .Cards .Card p {
+  font-size: 1.25rem;
+  line-height: 1.3;
+  max-width: 55ch;
+  color: #fff;
+}
+
+.Reviews .Main-Container .Card-Btn {
+  justify-content: center;
+  margin: 1.25em auto;
+  display: flex;
+}
+
+.Reviews .Main-Container .Card-Btn label {
+  transition: all 0.5s ease;
+  border: 2px solid var(--Black);
+  border-radius: 7px;
+  background: var(--White);
+  cursor: pointer;
+  margin: 0 5px;
+  height: 1.25em;
+  width: 2.25em;
+}
+
+#One:checked ~ .Card-Btn .One {
+  background-color: var(--Dark-Color);
+  width: 4em;
+}
+
+#One:checked ~ .Card-Btn .Two,
+#One:checked ~ .Card-Btn .Three {
+  width: 2.25em;
+}
+
+#Two:checked ~ .Card-Btn .Two {
+  background-color: var(--Dark-Color);
+  width: 4em;
+}
+
+#Two:checked ~ .Card-Btn .One,
+#Two:checked ~ .Card-Btn .Three {
+  width: 2.25em;
+}
+
+#Three:checked ~ .Card-Btn .Three {
+  background-color: var(--Dark-Color);
+  width: 4em;
+}
+
+#Three:checked ~ .Card-Btn .One,
+#Three:checked ~ .Card-Btn .Two {
+  width: 2.25em;
+}
+
+.Reviews .Main-Container input[type="radio"] {
+  display: none;
+}
+
+@media (max-width: 75em) {
+  .Reviews .Main-Container {
+    padding: 0 3.75em;
+  }
+}
+
+@media (max-width: 65em) {
+  .Reviews .Main-Container {
+    padding: 0 2.5em;
+  }
+  .Reviews .Main-Container .Title {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Reviews .Main-Container .Title h3 {
+    padding: 0;
+  }
+  .Reviews .Main-Container .Title h3::before {
+    left: -50px;
+  }
+  .Reviews .Main-Container .Title p {
+    margin: 0;
+    margin-top: 1.25em;
+  }
+}
+
+/* ==================== Call To Action Section ==================== */
+.CTA .Main-Container {
+  margin: 10rem auto 0;
+  padding: 0 5em;
+}
+
+.CTA .Main-Container .Holder {
+  height: 31.25em;
+  object-fit: cover;
+  position: relative;
+  border-radius: 15px;
+  box-shadow: 7px 7px var(--Black);
+  background-image: linear-gradient(to right, var(--Dark-Color) 10%, transparent 100%);
+}
+
+.CTA .Main-Container .Holder img {
+  border-radius: 15px;
+  position: relative;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.CTA .Main-Container .Holder .Info {
+  position: absolute;
+  max-width: 40%;
+  left: 3.25em;
+  top: 9.5em;
+}
+
+.CTA .Main-Container .Holder .Info h3 {
+  color: var(--White);
+  position: relative;
+  font-size: 1.5rem;
+}
+
+.CTA .Main-Container .Holder .Info p {
+  color: var(--Grey);
+  margin-top: 1.25em;
+  line-height: 1.3;
+  font-size: 1rem;
+}
+
+.CTA .Main-Container .Holder .Info .CTA-Btn {
+  background-image: linear-gradient(to right, var(--Main-Color), var(--Dark-Color));
+  padding: 0.8rem 1rem;
+  color: var(--White);
+  border-radius: 12px;
+  font-weight: 600;
+  margin-top: 2em;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.CTA .Main-Container .Holder .Info .CTA-Btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 75em) {
+  .CTA .Main-Container {
+    padding: 0 3.75em;
+  }
+}
+
+@media (max-width: 65em) {
+  .CTA .Main-Container {
+    padding: 0 2.5em;
+  }
+  .CTA .Main-Container .Holder .Info h3 {
+    padding: 0;
+  }
+}
+
+@media (max-width: 51em) {
+  .CTA .Main-Container .Holder .Info {
+    max-width: 70%;
+    margin: 0 auto;
+    top: 7.5em;
+    right: 0;
+    left: 0;
+  }
+}
+
+/* ==================== Contact Us Section ==================== */
+.Contact-Us {
+  scroll-margin-top: 100px;
+}
+
+.Contact-Us .Main-Container {
+  margin: 10rem auto 0;
+  padding: 0 5em;
+}
+
+.Contact-Us .Main-Container .Title {
+  display: flex;
+  align-items: center;
+}
+
+.Contact-Us .Main-Container .Title h3 {
+  position: relative;
+  padding-left: 35px;
+  font-size: 1.5rem;
+}
+
+.Contact-Us .Main-Container .Title h3::before {
+  content: url(Assets/Sections-Illustration.svg);
+  position: absolute;
+  z-index: -1;
+  top: 8px;
+  left: 0;
+}
+
+.Contact-Us .Main-Container .Title p {
+  margin-left: 75px;
+  line-height: 1.3;
+  font-size: 1rem;
+  max-width: 55ch;
+}
+
+.Contact-Us .Main-Container .Holder {
+  gap: 1.25em;
+  display: grid;
+  margin-top: 3em;
+  grid-template-columns: repeat(2, 30% 70%);
+}
+
+.Contact-Us .Main-Container .Holder h4 {
+  font-size: 1.25rem;
+}
+
+.Contact-Us .Main-Container .Holder a {
+  color: var(--White);
+}
+
+.Contact-Us .Main-Container .Holder p {
+  margin: 0.5em 0;
+}
+
+.Contact-Us .Main-Container .Holder .Info {
+  gap: 1.75em;
+  display: flex;
+  color: var(--White);
+  border-radius: 15px;
+  padding: 1.25em 2.5em;
+  flex-direction: column;
+  justify-content: center;
+  box-shadow: 7px 7px var(--Black);
+  background-color: var(--Dark-Color);
+}
+
+.Contact-Us .Main-Container .Holder .Map iframe {
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 7px 7px var(--Black);
+}
+
+@media (max-width: 75em) {
+  .Contact-Us .Main-Container {
+    padding: 0 3.75em;
+  }
+  .Contact-Us .Main-Container .Holder {
+    grid-template-columns: repeat(2, 40% 60%);
+  }
+}
+
+@media (max-width: 65em) {
+  .Contact-Us .Main-Container {
+    padding: 0 2.5em;
+  }
+  .Contact-Us .Main-Container .Title {
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .Contact-Us .Main-Container .Title h3 {
+    padding: 0;
+  }
+  .Contact-Us .Main-Container .Title h3::before {
+    left: -35px;
+  }
+  .Contact-Us .Main-Container .Title p {
+    margin: 0;
+    margin-top: 1.25em;
+  }
+    .Contact-Us .Main-Container .Holder {
+    grid-template-columns: repeat(2, 50% 50%);
+  }
+}
+
+@media (max-width: 43em) {
+  .Contact-Us .Main-Container .Holder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+/* ==================== Website Footer ==================== */
+.Footer {
+  background-color: var(--Black);
+}
+
+.Footer .Main-Container {
+  margin: 10em auto 0;
+  padding: 0em 5em;
+}
+
+.Footer .Main-Container .Holder {
+  display: grid;
+  padding-top: 3em;
+  grid-template-columns: repeat(2, 40% 60%);
+}
+
+.Footer .Main-Container .Holder .Info {
+  flex-direction: column;
+  color: var(--White);
+  display: flex;
+}
+
+.Footer .Main-Container .Holder .Info h1 {
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.Footer .Main-Container .Holder .Info p {
+  font-size: 1rem;
+  max-width: 40ch;
+  line-height: 1.3;
+  color: var(--Grey);
+  margin-bottom: 1.25em;
+}
+
+.Footer .Main-Container .Holder .Info .Footer-Btn {
+  background-image: linear-gradient(to right, var(--Main-Color), var(--Dark-Color));
+  padding: 0.8rem 3.5rem;
+  color: var(--White);
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.Footer .Main-Container .Holder .Info .Footer-Btn:active {
+  transform: scale(0.98);
+}
+
+.Footer .Main-Container .Holder .Form-Container .Title {
+  display: flex;
+  margin-bottom: 1.75em;
+  justify-content: center;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Title h3 {
+  font-size: 1.5rem;
+  position: relative;
+  color: var(--White);
+  z-index: 1;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Title h3::before {
+  content: url(Assets/Sections-Illustration.svg);
+  position: absolute;
+  z-index: -1;
+  left: -35px;
+  top: 8px;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Form .Input-Holder {
+  gap: 1.25em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Form .Input-Holder input {
+  width: 100%;
+  padding: 1.25em;
+  border-radius: 12px;
+  margin-bottom: 1.25em;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Form textarea {
+  width: 100%;
+  resize: none;
+  height: 7.5em;
+  padding: 1.25em;
+  border-radius: 12px;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Form .Form-Btn {
+  background-image: linear-gradient(to right, var(--Main-Color), var(--Dark-Color));
+  color: var(--White);
+  border-radius: 12px;
+  margin-top: 1em;
+  padding: 0.8rem 0;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  width: 100%;
+}
+
+.Footer .Main-Container .Holder .Form-Container .Form .Form-Btn:active {
+  transform: scale(0.98);
+}
+
+.Notification {
+  top: 50%;
+  right: 50%;
+  z-index: 1000;
+  display: none;
+  position: fixed;
+  padding: 1.25em;
+  max-width: 45ch;
+  width: fit-content;
+  text-align: center;
+  border-radius: 12px;
+  background-color: var(--White);
+  transform: translate(50%, -50%);
+  box-shadow: 7px 7px var(--Black);
+}
+
+.Notification-success {
+  background-color: #4caf50;
+}
+
+.Notification-error {
+  background-color: #f44336;
+}
+
+.Notification.show {
+  display: block;
+}
+
+.Notification button {
+  background-color: var(--Black);
+  color: var(--White);
+  border-radius: 12px;
+  margin-top: 1.25em;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75em;
+  cursor: pointer;
+  width: 100%;
+}
+
+.Footer .Main-Container .Copy-Rights {
+  border-top: 1px solid var(--Dark-Grey);
+  flex-direction: column;
+  color: var(--White);
+  padding: 1.25em 0;
+  text-align: center;
+  margin-top: 3em;
+  display: flex;
+}
+
+.Footer .Main-Container .Copy-Rights a {
+  color: var(--Main-Color);
+}
+
+@media (max-width: 75em) {
+  .Footer .Main-Container {
+    padding: 0 3.75em;
+  }
+  .Footer .Main-Container .Holder {
+    grid-template-columns: repeat(2, 50% 50%);
+  }
+}
+
+@media (max-width: 65em) {
+  .Footer .Main-Container {
+    padding: 0 2.5em;
+  }
+  .Footer .Main-Container .Holder {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .Footer .Main-Container .Holder .Form-Container {
+    margin-top: 3em;
+  }
+  .Footer .Main-Container .Holder .Info {
+    text-align: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 50em) {
+  .Footer .Main-Container .Holder .Form-Container .Form .Input-Holder {
+    flex-direction: column;
+    gap: 0;
+  }
+  .Footer .Main-Container .Copy-Rights {
+    font-size: 0.775rem;
+  }
+}
